@@ -8,4 +8,4 @@ sbatch --account=accountname \
 	--time=0-8:00:00 \
 	--mail-type=END \
 	--job-name=msmc2 \
-	msmc_2_generateInput_multiInd.sh `echo ${POP}_IND` `echo $POP`
+	msmc_2_generateInput_multiInd.sh `echo ${POP}_IND.txt` `echo $POP`
