@@ -1,0 +1,9 @@
+for i in `cat INDS.txt`; 
+    do echo $i;
+          sbatch --account=accountname \
+          --nodes=1 --ntasks-per-node=4 --mem=0 \
+          --time=1-00:00:00 \
+          --output=outs/stdout_bootstrap_$i \
+          --error=outs/stderr_bootstrap_$i \
+          msmc_4_bootstraps.sh $i; 
+done
