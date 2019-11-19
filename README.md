@@ -120,7 +120,7 @@ From here, you may need to adjust the time steps and iterations for your MSMC ru
 ### MSMC on Multiple Genomes
 
 To combine multiple individuals, the steps generally follow what is detailed above. However, in step 2, you will instead use the script
-`msmc_2_generateInput_multiInd.sh`, which will combine all of the individuals from a given population. For this script, which is submitted using `submit_2_multi.txt`, you will need a file with the names of the individuals you want combined in your MSMC run (named POP_IND, where "POP" is your population name).
+`msmc_2_generateInput_multiInd.sh`, which will combine all of the individuals from a given population. For this script, which is submitted using `submit_2_multi.txt`, you will need a file with the names of the individuals you want combined in your MSMC run (named POP_IND.txt, where "POP" is your population name).
 
 In step 3, you will then need to change `-I`, which specifies which haplotypes to analyze. For one individual, this is `0,1`, for two individuals `0,1,2,3`, and so on. This will be done automatically in the “multiInd" script, which can simply be run as follows:
 
