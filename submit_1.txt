@@ -1,4 +1,4 @@
-for i in `cat IND`;
+for i in `cat IND.txt`;
 	do echo $i
 	IND=$i
 	sbatch --account=latesgenomics \
