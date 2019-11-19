@@ -12,7 +12,7 @@ cat genome.fa | sed 's/^>.*$/\n\(N\)\{100\}/g' | tr -d '\n' |
     fold -w 80 >> genome_new.fasta
 ```
 
-Another (probably better) thing to do could be to use [Chromosomer](https://github.com/gtamazian/chromosomer) or a similar program to assemble your draft genome to a more-complete published genome. If you’re interested in how the quality of your reference genome may affect your inferences, here’s a neat paper using simulations to test this: [Patton et al. 2019, MBE] (https://doi.org/10.1093/molbev/msz191).
+Another (probably better) thing to do could be to use [Chromosomer](https://github.com/gtamazian/chromosomer) or a similar program to assemble your draft genome to a more-complete published genome. If you’re interested in how the quality of your reference genome may affect your inferences, here’s a neat paper using simulations to test this: Patton et al. 2019 ([link](https://doi.org/10.1093/molbev/msz191)).
 
 Once you have a good genome, you’ll also need the following scripts:
 
