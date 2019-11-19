@@ -1,0 +1,11 @@
+POP="ALL"
+
+sbatch --account=accountname \
+	--output=outs/stdout_msmc2_$POP \
+	--error=outs/stderr_msmc2_$POP \
+	--nodes=1 \
+	--ntasks-per-node=1 \
+	--time=0-8:00:00 \
+	--mail-type=END \
+	--job-name=msmc2 \
+	msmc_2_generateInput_multiInd.sh `echo ${POP}_IND` `echo $POP`

@@ -1,0 +1,12 @@
+for i in `cat $INDS`; 
+        do echo $i;
+        for q in `cat bootstrap/${i}_bs_file_list.txt`; 
+                do echo $q;
+                sbatch --account=passerinagenome \
+                --nodes=1 --ntasks-per-node=4 --mem=0 \
+                --time=0-01:00:00 \
+                --output=outs/stdout_bootstrap_$q \
+                --error=outs/stderr_bootstrap_$q \
+                msmc_bootstrap.sh $q; 
+        done
+done

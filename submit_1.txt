@@ -1,0 +1,13 @@
+for i in `cat IND`;
+	do echo $i
+	IND=$i
+	sbatch --account=latesgenomics \
+	--job-name=msmc_${i} \
+	--mail-type=ALL \
+	--output=outs/stdout_${i}_msmc1 \
+	--error=outs/stderr_${i}_msmc1 \
+	--nodes=1 \
+	--ntasks-per-node=16 \
+	--time=1-00:00:00 \
+	msmc_1_call.sh $i
+done

@@ -1,0 +1,11 @@
+for i in `cat IND`
+	do echo $i
+	sbatch --account=accountname \
+	--output=outs/stdout_${i}_msmc2 \
+	--error=outs/stderr_${i}_msmc2 \
+	--nodes=1 \
+	--ntasks-per-node=1 \
+	--time=1-0:00:00 \
+	--mail-type=END \
+	msmc_2_generateInput_singleInd.sh $i
+done
