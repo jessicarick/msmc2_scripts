@@ -4,6 +4,8 @@
 # make edits there before using this script!
 source msmc_param.txt
 
+IND=$1
+
 #input for the bootstrapping
 BS_INPUT=`for s in `cat SCAFFOLDS.txt`; do find ${OUTDIR}/input/ -maxdepth 1 -name "*${POP_OR_IND}.${s}*.txt"; done`
 
