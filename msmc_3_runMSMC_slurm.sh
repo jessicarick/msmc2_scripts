@@ -17,7 +17,7 @@ if [ $NR_IND == 1 ]; then
 	find ${OUTDIR}/input/msmc_input.${POP_OR_IND}.*.txt -size 0 -delete
 	ls ${OUTDIR}/input/msmc_input.${POP_OR_IND}.*.txt | grep -v $sex_chr > ${OUTDIR}/input/SCAFS_INPUT_${POP_OR_IND}
 else
-	for i in `cat ${POP_OR_IND}_IND`
+	for i in `cat ${POP_OR_IND}_IND.txt`
        do echo $i
        IND=$i
 
