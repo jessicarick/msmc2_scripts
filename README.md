@@ -1,5 +1,4 @@
-# msmc2_scripts
-MSMC Tutorial and Scripts for running MSMC2.
+# MSMC Tutorial and Scripts for running MSMC2.
 
 ## MSMC2 Workflow and Code, v1.2 (Nov 2019)
 
