@@ -1,4 +1,4 @@
-for i in `cat IND`
+for i in `cat INDS.txt`
 	do echo $i
 	sbatch --account=accountname \
 	--output=outs/stdout_${i}_msmc2 \
