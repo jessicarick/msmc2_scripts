@@ -12,7 +12,7 @@ cat genome.fa | sed 's/^>.*$/\n\(N\)\{100\}/g' | tr -d '\n' |
     fold -w 80 >> genome_new.fasta
 ```
 
-Another (probably better) thing to do could be to use [Chromosomer](https://github.com/gtamazian/chromosomer) or a similar program to assemble your draft genome to a more-complete published genome. If you’re interested in how the quality of your reference genome may affect your inferences, here’s a neat paper using simulations to test this: [Patton et al. 2019, MBE] https://doi.org/10.1093/molbev/msz191).
+Another (probably better) thing to do could be to use [Chromosomer](https://github.com/gtamazian/chromosomer) or a similar program to assemble your draft genome to a more-complete published genome. If you’re interested in how the quality of your reference genome may affect your inferences, here’s a neat paper using simulations to test this: [Patton et al. 2019, MBE] (https://doi.org/10.1093/molbev/msz191).
 
 Once you have a good genome, you’ll also need the following scripts:
 
@@ -66,11 +66,11 @@ Once you have this file and you’ve edited both the `msmc_params` and `submit_1
 source submit_1.txt
 ```
 
-**NOTE:** if you are planning to phase your data, the time to do this is after generating VCF files, and before generating input in the next step. Alternatively, you can generate VCF files however you’d like and then jump into the MSMC process with `Step 2`.
-
 ### Step 1.5 - Phasing
 
 If you are planning to phase your data, this is the time\! I won’t be explaining how to do it, but common phasing programs to use are [Beagle](https://faculty.washington.edu/browning/beagle/beagle.html) ([Browning & Browning 2007](https://www.sciencedirect.com/science/article/pii/S0002929707638828)), [fastPHASE](http://stephenslab.uchicago.edu/software.html#fastphase) ([Scheet & Stephens 2006](https://www.sciencedirect.com/science/article/pii/S000292970763701X)), and [SHAPEIT2](https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html) ([Delaneau et al. 2013](https://doi.org/10.1016/j.ajhg.2013.09.002)).
+
+Alternatively, you can generate VCF files however you’d like and then jump into the MSMC process with `Step 2`.
 
 ## Step 2 - Generate Input
 
