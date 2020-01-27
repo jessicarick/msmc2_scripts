@@ -1,5 +1,5 @@
 # MSMC Tutorial and Scripts for running MSMC2.
-This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.2.pdf)
+This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.3.pdf)
 
 ## MSMC2 Workflow and Code, v1.2 (Nov 2019)
 
