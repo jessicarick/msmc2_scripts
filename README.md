@@ -49,6 +49,10 @@ This process involves first extracting all *k*-mer subsequences from the genome 
 
 # submitting as a SLURM job
 sbatch run_snpable2_slurm.sh
+
+# then edit the makeMappabilityMask.py script (lines 26 & 30) for your genome, and run the script
+# on line 30, use curly braces {} to indicate where in the name the scaffold name should go
+python makeMappabilityMask.py
 ```
 
 ## Step 1 - Call Variants
