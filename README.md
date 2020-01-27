@@ -52,6 +52,17 @@ sbatch run_snpable2_slurm.sh
 
 # then edit the makeMappabilityMask.py script (lines 26 & 30) for your genome, and run the script
 # on line 30, use curly braces {} to indicate where in the name the scaffold name should go
+
+```
+Next, you'll have to turn this into a "mappability mask" to be used with MSMC. To do this, edit the `makeMappabilityMask.py` script. You'll need to edit the paths indicated on lines 26 and 30. On line 26, direct the script to the masked fasta file created by the `run_snpable2` script (note: I recommend using the full path). On line 30, you need to specify the output location for the individual scaffold masks. In the path, use curly braces {} to indicate where the name of the scaffold should go. For example, my line 30 reads as follows:
+
+```sh
+ mask = MaskGenerator("/project/latesgenomics/jrick/latesWGS_2018/msmc/mask/lmariae_{}.mask.35.50.bed.gz".format(chr), chr)
+```
+Once those two lines are edited, run the script. Note: this script requires python2 (NOT python3) to run.
+
+```sh
+module load python/2.7.15
 python makeMappabilityMask.py
 ```
 
