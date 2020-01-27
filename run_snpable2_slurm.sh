@@ -46,7 +46,7 @@ echo "reads aligned, starting to generate rawMask"
 gen_raw_mask.pl ${prefix}_split.${k}.sam > ${prefix}_rawMask.${k}.fa
 
 echo "raw mask created as ${prefix}_rawMask.35.fa, now generating final mask with stringency r=50%"
-gen_mask -l ${k} -r 0.5 ${prefix}_rawMask.${k}.fa > ${prefix}_mask.${k}.50.fa
+gen_mask.pl -l ${k} -r 0.5 ${prefix}_rawMask.${k}.fa > ${prefix}_mask.${k}.50.fa
 
 echo "all done! final mask saved as ${prefix}_mask.${k}.50.fa"
 
