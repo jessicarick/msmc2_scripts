@@ -1,7 +1,7 @@
 # MSMC Tutorial and Scripts for running MSMC2.
-This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.3.pdf)
+This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.2.pdf)
 
-## MSMC2 Workflow and Code, v1.2 (Nov 2019)
+## MSMC2 Workflow and Code, v1.3 (Jan 2020)
 
 *This guide is intended to get you started on MSMC analyses, and to provide scripts for you to work off of. These scripts may not be perfect for your analyses, however, so please also read the manuals for the different programs being used (e.g. guides to [PSMC](https://github.com/lh3/psmc)/[MSMC](https://github.com/stschiff/msmc/blob/master/guide.md)/[MSMC2](https://github.com/stschiff/msmc2)) so that you understand and can make good choices about parameter settings and the workflow you’re using.*
 
