@@ -172,3 +172,8 @@ This output can then be plotted in `R`, using the same transformations as descri
 ## Step 4 - Bootstraps
 
 Once your MSMC plots are looking reasonable, then you can create bootstraps to determine your confidence in your findings. This requires randomly subsampling your data and running MSMC on those subsampled data. To do this, you’ll use the `msmc_4_bootstraps.sh` script, which is run by using the `submit_bootstrap.txt` script. This will first generate the bootstrap data, and then actually run the MSMC program on those subsampled data. These bootstrap runs can then be plotted in `R`, as outlined above for your main run. **NOTE:** As written, this is currently tailored for single individuals, and will need to be modified to get bootstraps for multi-individual runs.
+
+## TODO
+Some edits/changes/additions that I have plans to make when I get the time:
+- modify scripts to work with SLURM arrays, instead of being submitted as separate jobs
+- add more flexibility to scripts
