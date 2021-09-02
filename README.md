@@ -23,7 +23,9 @@ Once you have a good genome, you’ll also need the following scripts:
 
 3.  `submit_1.txt` and `msmc_1_call.sh` – this generates `vcf` and `mask` files for each individual and each chromosome. The submission script loops this script over all individuals and all chromosomes.
 
-4.  `submit_2.txt` and `msmc_2_generateInput_singleInd.sh` (if working with one indv) – this uses the `vcf` and `mask` files to generate a msmc input file when you will be analyzing each individual separately.
+4. `submit_1.5.txt` and `msmc_1.5_call.sh` - this phases each `vcf` file using [WhatsHap](https://whatshap.readthedocs.io/en/latest/). 
+
+5.  `submit_2.txt` and `msmc_2_generateInput_singleInd.sh` (if working with one indv) – this uses the `vcf` and `mask` files to generate a msmc input file when you will be analyzing each individual separately.
 
 5.  `submit_2_multi.txt` and `msmc_2_generateInput_multiInd.sh` (if multiple ind per pop), which will generate input files for all individuals and all chromosomes for runs where you intend to combine multiple individuals.
 
@@ -84,7 +86,7 @@ source submit_1.txt
 
 ### Step 1.5 - Phasing
 
-If you are planning to phase your data, this is the time\! I won’t be explaining how to do it, but common phasing programs to use are [Beagle](https://faculty.washington.edu/browning/beagle/beagle.html) ([Browning & Browning 2007](https://www.sciencedirect.com/science/article/pii/S0002929707638828)), [fastPHASE](http://stephenslab.uchicago.edu/software.html#fastphase) ([Scheet & Stephens 2006](https://www.sciencedirect.com/science/article/pii/S000292970763701X)), and [SHAPEIT2](https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html) ([Delaneau et al. 2013](https://doi.org/10.1016/j.ajhg.2013.09.002)).
+If you are planning to phase your data, this is the time\! I won’t be explaining how to do it, but common phasing programs to use are [Beagle](https://faculty.washington.edu/browning/beagle/beagle.html) ([Browning & Browning 2007](https://www.sciencedirect.com/science/article/pii/S0002929707638828)), [fastPHASE](http://stephenslab.uchicago.edu/software.html#fastphase) ([Scheet & Stephens 2006](https://www.sciencedirect.com/science/article/pii/S000292970763701X)), [SHAPEIT](https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html) ([Delaneau et al. 2013](https://doi.org/10.1016/j.ajhg.2013.09.002)), or [WhatsHap](https://whatshap.readthedocs.io/en/latest/). I have included scripts that can be used to phase using WhatsHap, but the best method will depend on the specifics of your data, so I would recommend taking a look at all of these programs to get an idea of their pros and cons, and what scenarios they work well for.
 
 Alternatively, you can generate VCF files however you’d like and then jump into the MSMC process with `Step 2`.
 
