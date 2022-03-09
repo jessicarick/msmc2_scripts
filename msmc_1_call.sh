@@ -28,16 +28,16 @@ for s in `cat SCAFFOLDS.txt`; \
 
         ### Calculate mean coverage (to be used as input for bamCaller.py):
         MEANCOV=`samtools depth -r $s $BAMFILE | awk '{sum += $3} END {if (NR==0) print NR; else print sum / NR}' | tr ',' '.'` # calculate mean coverage
-        echo ${IND}.${s} $MEANCOV >> ${BAMDIR}/coverage_samtoolsDepth_${IND}.txt # save mean coverage in separate file
+        echo ${IND}.${s} $MEANCOV >> ${OUTDIR}/coverage_samtoolsDepth_${IND}.txt # save mean coverage in separate file
         echo "Mean coverage for this individual, scaffold ${s}: $MEANCOV"
 
         ### Generate a single-sample VCF and a mask-file:
-        MASK_IND=${OUTDIR}/mask/ind_mask.${IND}.${s}.samtools.bed.gz # Individual mask file to be created
-        VCF=${OUTDIR}/vcf/${IND}.${s}.${method}.vcf # VCF file to be created
+        MASK_IND=${OUTDIR}/mask/ind_mask.${IND}.${s}.${METHOD}.bed.gz # Individual mask file to be created
+        VCF=${OUTDIR}/vcf/${IND}.${s}.${METHOD}.vcf # VCF file to be created
 
         #If genome isn't indexed, add:
         #samtools faidx $GENOME
-        if [ "$method" == "samtools" ]; then
+        if [ "$METHOD" == "samtools" ]; then
                 echo "starting samtools alignment"
                 bcftools mpileup -Ou -r ${s} --threads 16 -f $GENOME $BAMFILE | bcftools call -c --threads 16 -V indels | bamCaller.py $MEANCOV $MASK_IND > ${VCF}
 
