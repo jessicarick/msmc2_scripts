@@ -12,7 +12,7 @@ module list
 for s in `cat SCAFFOLDS.txt`
         do echo "working on scaffold $s"
         SCAFFOLD=$s
-        VCF=`ls ${OUTDIR}/vcf/${IND}.${SCAFFOLD}.samtools.vcf.gz`
+        VCF=`ls ${OUTDIR}/vcf/${IND}.${SCAFFOLD}.${METHOD}.vcf.gz`
 
         #MASK_REPEATS=repeats.bed.gz # Needs to be gzipped
         MSMC_INPUT=${OUTDIR}/input/msmc_input.${IND}.${SCAFFOLD}.txt
@@ -34,7 +34,7 @@ for s in `cat SCAFFOLDS.txt`
 ### Generate MSMC input files:
                 if [ $METHOD == samtools ]
                         then
-                                MASK_INDIV=${OUTDIR}/mask/ind_mask.${IND}.${SCAFFOLD}.samtools.bed.gz # store indiv.mask file path
+                                MASK_INDIV=${OUTDIR}/mask/ind_mask.${IND}.${SCAFFOLD}.${METHOD}.bed.gz # store indiv.mask file path
                                 MASK_GENOME=${OUTDIR}/mask/prefix_${SCAFFOLD}.mask.${k}.50.bed.gz
                                 echo "MASK: ${MASK_INDIV}"
                                 echo "MAPPABILITY MASK: ${MASK_GENOME}"
