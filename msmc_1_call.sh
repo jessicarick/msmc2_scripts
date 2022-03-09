@@ -32,19 +32,21 @@ for s in `cat SCAFFOLDS.txt`; \
         echo "Mean coverage for this individual, scaffold ${s}: $MEANCOV"
 
         ### Generate a single-sample VCF and a mask-file:
-        MASK_IND=${OUTDIR}/mask/ind_mask.lmar.${IND}.${s}.samtools.bed.gz # Individual mask file to be created
-        VCF=${OUTDIR}/vcf/${IND}.${s}.samtools.vcf # VCF file to be created
+        MASK_IND=${OUTDIR}/mask/ind_mask.${IND}.${s}.samtools.bed.gz # Individual mask file to be created
+        VCF=${OUTDIR}/vcf/${IND}.${s}.${method}.vcf # VCF file to be created
 
         #If genome isn't indexed, add:
         #samtools faidx $GENOME
-        echo "starting samtools alignment"
-        bcftools mpileup -Ou -r ${s} --threads 16 -f $GENOME $BAMFILE | bcftools call -c --threads 16 -V indels | bamCaller.py $MEANCOV $MASK_IND > ${VCF}
+        if [ "$method" == "samtools" ]; then
+                echo "starting samtools alignment"
+                bcftools mpileup -Ou -r ${s} --threads 16 -f $GENOME $BAMFILE | bcftools call -c --threads 16 -V indels | bamCaller.py $MEANCOV $MASK_IND > ${VCF}
 
-        ## Only DP > 9:
-        #samtools mpileup -q 20 -Q 20 -C 50 -u -r $SCAFFOLD -f $GENOME $BAMFILE | bcftools call -c -V indels | bcftools view -i 'INFO/DP>9' | $MSMCTOOLS/bamCaller.py $MEANCOV $MASK_IND | gzip -c > $VCF.gz
+                ## Only DP > 9:
+                #samtools mpileup -q 20 -Q 20 -C 50 -u -r $SCAFFOLD -f $GENOME $BAMFILE | bcftools call -c -V indels | bcftools view -i 'INFO/DP>9' | $MSMCTOOLS/bamCaller.py $MEANCOV $MASK_IND | gzip -c > $VCF.gz
 
-        # -q = min. mapping qual; -Q = min. base qual; -C = coefficient for downgrading mapping qual for reads w/ excessive mismatches; -u = generate uncompressed VCF/BCF; -r = only specified region; -f = fasta.
-        # bcftools: "call" will call SNPs/indels; "-V indels" skips indels; -c = consensus caller.
+                # -q = min. mapping qual; -Q = min. base qual; -C = coefficient for downgrading mapping qual for reads w/ excessive mismatches; -u = generate uncompressed VCF/BCF; -r = only specified region; -f = fasta.
+                # bcftools: "call" will call SNPs/indels; "-V indels" skips indels; -c = consensus caller.
+        fi
         echo "done with scaffold ${s}; moving on to next scaffold"
 done
 
