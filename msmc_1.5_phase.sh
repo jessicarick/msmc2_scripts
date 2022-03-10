@@ -1,6 +1,6 @@
 #!/bin/sh
 
-scriptdir=$(dirname "$(readlink -f "$0")")
+scriptdir=$(dirname "$0")
 source ${scriptdir}/msmc_params.sh
 
 IND=$1
