@@ -1,6 +1,7 @@
 #!/bin/sh
 
-source msmc_params.sh
+scriptdir=$(dirname "$(readlink -f "$0")")
+source ${scriptdir}/msmc_params.sh
 
 IND=$1
 BAMFILE=${BAMDIR}/aln_${IND}.sorted.bam
