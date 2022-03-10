@@ -1,3 +1,5 @@
+scriptdir=$(dirname "$0")
+
 for i in `cat INDS.txt`; 
     do echo $i;
           sbatch --account=accountname \
@@ -5,5 +7,5 @@ for i in `cat INDS.txt`;
           --time=1-00:00:00 \
           --output=outs/stdout_bootstrap_$i \
           --error=outs/stderr_bootstrap_$i \
-          msmc_4_bootstraps.sh $i; 
+          $scriptdir/msmc_4_bootstraps.sh $i; 
 done
