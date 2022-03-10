@@ -1,3 +1,5 @@
+scriptdir=$(dirname "$0")
+
 POP="ALL"
 
 sbatch --account=accountname \
@@ -8,4 +10,4 @@ sbatch --account=accountname \
 	--time=0-8:00:00 \
 	--mail-type=END \
 	--job-name=msmc2 \
-	msmc_2_generateInput_multiInd.sh `echo ${POP}_IND.txt` `echo $POP`
+	$scriptdir/msmc_2_generateInput_multiInd.sh `echo ${POP}_IND.txt` `echo $POP`
