@@ -2,8 +2,13 @@
 
 # script usage:
 # sbatch run_snpable2.sh
+snpable_script_path=/path/to/scripts # directory with snpable scripts
+PATH=$PATH:$snpable_script_path
 
 date
+
+scriptdir=$(dirname "$0")
+source ${scriptdir}/msmc_params.sh
 
 mkdir ${OUTDIR}/snpable
 cd ${OUTDIR}/snpable
