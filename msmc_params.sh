@@ -11,6 +11,11 @@ PATH=$PATH:$MSMCTOOLS
 
 OUTDIR=/path/to/output # main directory for output files
 
+# make directories for intermediate files-- will fail if these don't exist
+mkdir -p ${OUTDIR}/vcf
+mkdir -p ${OUTDIR}/mask
+mkdir -p ${OUTDIR}/input
+
 # for msmc_1_call.sh
 GENOME=/path/to/reference.fa # reference genome fasta
 prefix=prefix # prefix of genome masks
