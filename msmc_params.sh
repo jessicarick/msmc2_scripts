@@ -1,6 +1,8 @@
 module load gcc
 module load msmc2
 module load samtools
+module load bcftools
+module load vcftools
 module load bwa
 module load python/3.6.3
 
