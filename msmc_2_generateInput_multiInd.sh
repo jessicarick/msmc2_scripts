@@ -2,7 +2,8 @@
 
 # all parameters come from the msmc_param control file
 # make edits there before using this script!
-source msmc_param
+scriptdir=$(dirname "$(readlink -f "$0")")
+source ${scriptdir}/msmc_params.sh
 
 ### Variables:
 IND=`cat $1`
