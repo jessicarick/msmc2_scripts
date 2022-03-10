@@ -1,3 +1,5 @@
+scriptdir=$(dirname "$0")
+
 for i in `cat INDS.txt`
 	do echo $i
 	sbatch --account=accountname \
@@ -7,5 +9,5 @@ for i in `cat INDS.txt`
 	--ntasks-per-node=1 \
 	--time=1-0:00:00 \
 	--mail-type=END \
-	msmc_2_generateInput_singleInd.sh $i
+	$scriptdir/msmc_2_generateInput_singleInd.sh $i
 done
