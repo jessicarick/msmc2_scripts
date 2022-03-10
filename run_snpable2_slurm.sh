@@ -14,9 +14,13 @@
 # sbatch run_snpable2_slurm.sh prefix /path/to/reference.fa 
 # where "prefix" is the prefix for the output files
 
+snpable_script_directory=/path/to/scripts # path to snpable scripts
+PATH=$PATH:$snpable_script_directory
+
 date
 
-source msmc_params
+scriptdir=$(dirname "$0")
+source ${scriptdir}/msmc_params.sh
 
 mkdir ${OUTDIR}/snpable
 cd ${OUTDIR}/snpable
