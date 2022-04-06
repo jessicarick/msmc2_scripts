@@ -177,3 +177,6 @@ Once your MSMC plots are looking reasonable, then you can create bootstraps to d
 Some edits/changes/additions that I have plans to make when I get the time:
 - modify scripts to work with SLURM arrays, instead of being submitted as separate jobs
 - add more flexibility to scripts
+
+![Diagram of one possible msmc_pipeline](https://user-images.githubusercontent.com/14999465/161923000-aba5b9d8-5dff-4df4-9acd-925c1a124cca.png)
+
