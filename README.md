@@ -1,6 +1,9 @@
 # MSMC Tutorial and Scripts for running MSMC2.
 This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.2.pdf). Please let me know of any problems that you have with this, either via GitHub issues or at jrick[at]uwyo.edu. _These scripts are modified from those passed down via [Rachel Williams](https://twitter.com/conservologist) and [Jelmer Poelstra](https://caps.osu.edu/people/poelstra.1), who I am grateful to for sharing!_
 
+
+![Diagram of one possible msmc_pipeline](https://user-images.githubusercontent.com/14999465/161923000-aba5b9d8-5dff-4df4-9acd-925c1a124cca.png)
+
 ## MSMC2 Workflow and Code, v1.3 (Jan 2020)
 
 *This guide is intended to get you started on MSMC analyses, and to provide scripts for you to work off of. These scripts may not be perfect for your analyses, however, so please also read the manuals for the different programs being used (e.g. guides to [PSMC](https://github.com/lh3/psmc)/[MSMC](https://github.com/stschiff/msmc/blob/master/guide.md)/[MSMC2](https://github.com/stschiff/msmc2)) so that you understand and can make good choices about parameter settings and the workflow you’re using.*
@@ -178,5 +181,4 @@ Some edits/changes/additions that I have plans to make when I get the time:
 - modify scripts to work with SLURM arrays, instead of being submitted as separate jobs
 - add more flexibility to scripts
 
-![Diagram of one possible msmc_pipeline](https://user-images.githubusercontent.com/14999465/161923000-aba5b9d8-5dff-4df4-9acd-925c1a124cca.png)
 
