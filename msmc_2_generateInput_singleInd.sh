@@ -40,14 +40,24 @@ for s in `cat SCAFFOLDS.txt`
                                 echo "MASK: ${MASK_INDIV}"
                                 echo "MAPPABILITY MASK: ${MASK_GENOME}"
                                 echo "Creating MSMC input file WITH individual mask (samtools)"
-                                #${MSMCTOOLS}/generate_multihetsep.py --negative_mask=$MASK_REPEATS --mask=$MASK_INDIV $VCF > $MSMC_INPUT # with repeat mask
+
                                 generate_multihetsep.py --mask=${MASK_INDIV} --mask=${MASK_GENOME} $VCF > $MSMC_INPUT # without repeat mask
 
-                elif [ $METHOD == gatk ]
+                elif [ $METHOD != samtools ]
                         then
-                                echo "Creating MSMC input file WITHOUT individual mask (gatk)"
-                                #msmc-tools/generate_multihetsep.py --negative_mask=$MASK_REPEATS $VCF > $MSMC_INPUT # with repeat mask
-                                generate_multihetsep.py $VCF > $MSMC_INPUT # without repeat mask
+                                # NOTE THAT THIS WAS CHANGED 10 FEB 2024
+                                # AND HAS NOT YET BEEN TESTED TO MAKE SURE IT WORKS
+                                
+                                echo "Creating individual mask. Note that your input VCF should include ALL sites (variant & invariant)."
+                                MASK_INDIV=${OUTDIR}/mask/ind_mask.${IND}.${SCAFFOLD}.${METHOD}.bed.gz
+                                MASK_GENOME=${OUTDIR}/mask/prefix_${SCAFFOLD}.mask.${k}.50.bed.gz
+                                
+                                VCF_OUT=${VCF}.parsed.vcf
+                                vcfAllSiteParser.py $SCAFFOLD $MASK_INDIV $VCF_OUT
+                                
+                                echo "Creating MSMC input file with new individual mask"
+                                
+                                generate_multihetsep.py --mask=$MASK_INDIV --mask=$MASK_GENOME $VCF > $MSMC_INPUT # with new repeat mask
                 fi
 
         else
