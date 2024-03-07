@@ -46,6 +46,19 @@ for s in `cat SCAFFOLDS.txt`
                 MASK_GENOME=`ls ${OUTDIR}/mask/${prefix}_${SCAFFOLD}.mask.${k}.50.bed.gz`
                 #msmc-tools/generate_multihetsep.py --negative_mask=$MASK_REPEATS $VCF > $MSMC_INPUT # with repeat mask
                 generate_multihetsep.py --mask=$MASK_GENOME `cat ${OUTDIR}/vcf/${POP}.vcf_file.${SCAFFOLD}` > $MSMC_INPUT # without repeat mask
+
+                # NOTE THAT THIS WAS CHANGED 10 FEB 2024
+                # AND HAS NOT YET BEEN TESTED TO MAKE SURE IT WORKS
+                                
+                echo "Creating individual mask. Note that your input VCF should include ALL sites (variant & invariant)."
+                MASK_INDIV=${OUTDIR}/mask/ind_mask.${IND}.${SCAFFOLD}.${METHOD}.bed.gz
+                                
+                VCF_OUT=${VCF}.parsed.vcf
+                vcfAllSiteParser.py $SCAFFOLD $MASK_INDIV $VCF_OUT
+                                
+                echo "Creating MSMC input file with new individual mask"
+                                
+                generate_multihetsep.py --mask=$MASK_INDIV --mask=$MASK_GENOME $VCF > $MSMC_INPUT # with new repeat mask
         fi
 
 done
