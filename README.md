@@ -1,5 +1,5 @@
 # MSMC Tutorial and Scripts for running MSMC2.
-This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.2.pdf). Please let me know of any problems that you have with this, either via GitHub issues or at jrick[at]arizona.edu. _These scripts are modified from those passed down via [Rachel Williams](https://twitter.com/conservologist) and [Jelmer Poelstra](https://caps.osu.edu/people/poelstra.1), who I am grateful to for sharing!_
+This tutorial can also be downloaded as a PDF [here](MSMC_Tutorial_v1.2.pdf). Please let me know of any problems that you have with this, either via GitHub issues or at jrick[at]arizona.edu. _These scripts are modified from those passed down via [Rachel Williams](https://scholar.google.com/citations?user=Yf6KYYQAAAAJ&hl=en) and [Jelmer Poelstra](https://research.cfaes.ohio-state.edu/people/jelmer-poelstra-phd), who I am grateful to for sharing!_
 
 
 ![Diagram of one possible msmc_pipeline](https://user-images.githubusercontent.com/14999465/161923000-aba5b9d8-5dff-4df4-9acd-925c1a124cca.png)
