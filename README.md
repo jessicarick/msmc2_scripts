@@ -22,7 +22,7 @@ Once you have a good genome, you’ll also need the following scripts:
 
 1.  `msmc_params` control file, which allows you to specify parameters in common for all of the scripts. It is important to change this to match your specfic data and run parameters.
 
-2.  `run_snpable.sh` – this generates a "mappability mask" for your reference genome using Heng Li’s [SNPable Regions program](http://lh3lh3.users.sourceforge.net/snpable.shtml)
+2.  `run_snpable.sh` – this generates a "mappability mask" for your reference genome using Heng Li’s [SNPable Regions program](https://github.com/lh3/misc)
 
 3.  `submit_1.txt` and `msmc_1_call.sh` – this generates `vcf` and `mask` files for each individual and each chromosome. The submission script loops this script over all individuals and all chromosomes.
 
@@ -44,7 +44,7 @@ The MSMC process starts with sorted `.bam` files, so if you haven’t already, y
 
 ## Step 0 - Create Mappability Mask
 
-One more preparation step before you begin (which can also be run concurrently with `Step 1` below) is to create a mappability mask for your genome. To do this, you need the scripts for [SNPable](http://lh3lh3.users.sourceforge.net/snpable.shtml), which you’ll find linked on Heng Li’s website. You’ll also need the `makeMappabilityMask.py` script from the [msmc-tools-master](https://github.com/stschiff/msmc-tools) set of scripts.
+One more preparation step before you begin (which can also be run concurrently with `Step 1` below) is to create a mappability mask for your genome. To do this, you need the scripts for [SNPable](https://github.com/lh3/misc), which you’ll find linked on Heng Li’s GitHub repo. You’ll also need the `makeMappabilityMask.py` script from the [msmc-tools-master](https://github.com/stschiff/msmc-tools) set of scripts.
 
 This process involves first extracting all *k*-mer subsequences from the genome as read sequences, then aligning them back to the genome to get an estimate of how “mappable" different regions are. This is done using the `run_snpable2.sh` script, which requires `samtools` and `bwa`, in addition to the `splitfa`, `gen_raw_mask.pl`, and `gen_mask` scripts from `SNPable` and `msmc-tools-master`.
 
